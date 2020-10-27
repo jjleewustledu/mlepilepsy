@@ -1,0 +1,31 @@
+classdef MSC < mlepilepsy.BOLD
+	%% MSC  
+
+	%  $Revision$
+ 	%  was created 25-Oct-2020 20:00:45 by jjlee,
+ 	%  last modified $LastChangedDate$ and placed into repository /Users/jjlee/MATLAB-Drive/mlepilepsy/src/+mlepilepsy.
+ 	%% It was developed on Matlab 9.9.0.1495850 (R2020b) Update 1 for MACI64.  Copyright 2020 John Joowon Lee.
+ 	 	
+	properties (Constant)
+        ARCHIVE_HOME = '/data/nil-bluearc/shimony/jjlee/GSP'
+        DENOISING_TAG = '_faln_dbnd_xr3d_atl_g7_bpss_resid'
+        TARGET_FOLDER = '/data/nil-bluearc/shimony/jjlee/GSP_999_mat'
+    end
+    
+	properties
+ 		
+ 	end
+
+	methods 
+		  
+ 		function this = MSC(varargin)
+ 			%% MSC
+ 			%  @param .
+
+ 			this = this@mlepilepsy.BOLD(varargin{:});
+ 		end
+ 	end 
+
+	%  Created with Newcl by John J. Lee after newfcn by Frank Gonzalez-Morphy
+ end
+
