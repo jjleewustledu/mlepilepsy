@@ -29,11 +29,15 @@ classdef BOLD
             count = 0;
             assert(~isempty(globT(patt)))
             for m = globT('*.mat')
-                count = count + 1;
-                c = mlepilepsy.Correlations.createFromMat(m{1});
-                mean_cc = mean_cc + c.itsCorrcoef;
-                [~,fp] = fileparts(m{1});
-                save(c, [fp '_buildCorrelations.mat'])
+                try
+                    c = mlepilepsy.Correlations.createFromMat(m{1});
+                    mean_cc = mean_cc + c.itsCorrcoef;
+                    [~,fp] = fileparts(m{1});
+                    save(c, [fp '_buildCorrelations.mat'])
+                    count = count + 1;
+                catch ME
+                    handwarning(ME)
+                end
             end
             mean_cc = mean_cc/count;
             save('mlepilepsy_BOLD_buildCorrelations_mean_cc.mat', 'mean_cc')
